@@ -4,6 +4,7 @@ import './App.css';
 import { readAirportList, searchFlight } from './api';
 
 import SearchFrom from './SearchForm'
+import FlightList from './FlightList'
 
 class App extends Component {
   state = {
@@ -62,8 +63,13 @@ class App extends Component {
               onSubmit={this.handleSubmit}
               onReset={this.handleReset}
             />
-        }
-          {!isLoading && flights && <p>Flights list</p>}
+          }
+          {!isLoading && flights &&
+            <FlightList
+              flights={flights}
+              onReset={this.handleReset}
+            />
+          }
       </div>
     );
   }
